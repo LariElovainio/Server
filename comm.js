@@ -5,6 +5,8 @@ var serialPort;
 var portName = '/dev/ttyACM0';
 var sendData = "";
 
+var debug = true;
+
 io.sockets.on('connection', function (socket) {
   serialListener(debug);
   io.sockets.emit('updateSensor', 'koira');
