@@ -15,10 +15,10 @@ io.sockets.on('connection', function (socket) {
 		console.log(data);
 		io.sockets.emit('update', data);
 	});
-	socket.on('sensorData', function (data) {
+	/*socket.on('sensorData', function (data) {
 		console.log(data);
 		io.sockets.emit('updateSensor', data);
-	});
+	});*/
 });
 
 function serialListener(debug)
@@ -43,7 +43,7 @@ function serialListener(debug)
            receivedData = '';
          }
          // send the incoming data to browser with websockets.
-       socketServer.emit('update', sendData);
+       io.sockets.emit('updateSensor', sendData);
       });
     });
 }
