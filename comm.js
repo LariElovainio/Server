@@ -6,19 +6,8 @@ var portName = '/dev/ttyACM0';
 var sendData = "";
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
   serialListener(debug);
   io.sockets.emit('updateSensor', 'koira');
-  
-  /*socket.on('my other event', function (data) {
-    console.log(data);
-  });
-  socket.emit('seat1', seat1 );
-  socket.on('seat1', function (data) {
-    //console.log(data);
-    heart++;
-    setTimeout( function() { socket.emit('seat1', seat1); }, 500 );
-  });*/
   
 	socket.on('remote', function (data) {
 		console.log(data);
